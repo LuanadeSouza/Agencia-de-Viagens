@@ -2,4 +2,8 @@
     <string name="app_name">Agência</string>
     <string name="especiais">Especiais</string>
     <string name="brasil">Brasil</string>
+    <string name="sao_paulo">São Paulo</string>
+    <string name="todo">TODO</string>
+    <string name="dias">2 dias</string>
+    <string name="valor">R$ 421,50</string>
 </resources>
