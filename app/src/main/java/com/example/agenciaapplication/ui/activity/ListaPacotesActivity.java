@@ -21,12 +21,14 @@ public class ListaPacotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_pacotes);
 
-        setTitle("Pacotes");
+        setTitle(getString(R.string.titulo_app_bar));
+        configuraLista();
 
+    }
+
+    private void configuraLista() {
         ListView listaDePacotes = findViewById(R.id.list_view_lista_pacotes);
         List<Pacote> pacotes = new PacoteDao().lista();
-
         listaDePacotes.setAdapter( new ListaPacotesAdapter(pacotes, this));
-
     }
 }
