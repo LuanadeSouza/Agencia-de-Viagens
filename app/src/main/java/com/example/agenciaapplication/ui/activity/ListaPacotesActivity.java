@@ -1,10 +1,10 @@
 package com.example.agenciaapplication.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agenciaapplication.R;
 import com.example.agenciaapplication.dao.PacoteDao;
@@ -23,6 +23,9 @@ public class ListaPacotesActivity extends AppCompatActivity {
 
         setTitle(getString(R.string.titulo_app_bar));
         configuraLista();
+
+        Intent intent = new Intent(this, ResumoPacoteActivity.class);
+        startActivity(intent);
 
     }
 
