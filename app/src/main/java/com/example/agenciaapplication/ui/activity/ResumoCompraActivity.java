@@ -21,6 +21,8 @@ import org.w3c.dom.Text;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import static com.example.agenciaapplication.ui.activity.Constantes.CHAVE_PACOTES;
+
 public class ResumoCompraActivity extends AppCompatActivity {
 
     public static final String TITLE_RESUMO = "Resumo da compra";
@@ -32,24 +34,35 @@ public class ResumoCompraActivity extends AppCompatActivity {
 
         setTitle(TITLE_RESUMO);
 
+        carregaPacoteRecebido();
+        startBack();
+    }
+
+    private void carregaPacoteRecebido() {
         Intent intent = getIntent();
-        if (intent.hasExtra("pacote")) {
-            Pacote pacote = (Pacote) intent.getSerializableExtra("pacote");
+        if (intent.hasExtra(CHAVE_PACOTES)) {
+            Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_PACOTES);
 
-            mostraLocal(pacote);
-            mostraImage(pacote);
-            mostraDate(pacote);
-            mostraPreco(pacote);
-
-            Button buttonVoltar = findViewById(R.id.button_voltar);
-            buttonVoltar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(ResumoCompraActivity.this, ListaPacotesActivity.class);
-                    startActivity(intent);
-                }
-            });
+            initView(pacote);
         }
+    }
+
+    private void initView(Pacote pacote) {
+        mostraLocal(pacote);
+        mostraImage(pacote);
+        mostraDate(pacote);
+        mostraPreco(pacote);
+    }
+
+    private void startBack() {
+        Button buttonVoltar = findViewById(R.id.button_voltar);
+        buttonVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResumoCompraActivity.this, ListaPacotesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void mostraPreco(Pacote pacote) {

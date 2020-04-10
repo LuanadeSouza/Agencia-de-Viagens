@@ -15,6 +15,8 @@ import com.example.agenciaapplication.ui.adapter.ListaPacotesAdapter;
 
 import java.util.List;
 
+import static com.example.agenciaapplication.ui.activity.Constantes.CHAVE_PACOTES;
+
 public class ListaPacotesActivity extends AppCompatActivity {
 
 
@@ -37,11 +39,15 @@ public class ListaPacotesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Pacote pacoteClicado = pacotes.get(position);
-                Intent intent = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
-                intent.putExtra("pacotes",pacoteClicado);
-                startActivity(intent);
+                startPacote(pacoteClicado);
 
             }
         });
+    }
+
+    private void startPacote(Pacote pacoteClicado) {
+        Intent intent = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
+        intent.putExtra(CHAVE_PACOTES,pacoteClicado);
+        startActivity(intent);
     }
 }
