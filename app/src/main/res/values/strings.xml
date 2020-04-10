@@ -21,5 +21,6 @@
     <string name="parabens">Parabéns !</string>
     <string name="compra_realizada">Compra realizada com sucesso :)</string>
     <string name="resumo_da_compra">Confira o resumo da compra:</string>
+    <string name="voltar">Voltar</string>
 
 </resources>
