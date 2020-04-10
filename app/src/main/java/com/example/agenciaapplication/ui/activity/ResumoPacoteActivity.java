@@ -1,5 +1,6 @@
 package com.example.agenciaapplication.ui.activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -20,7 +21,7 @@ import java.util.Calendar;
 
 public class ResumoPacoteActivity extends AppCompatActivity {
 
-    public static final String TITLE_APP_BAR = "Resumo do pacote";
+    public static final String TITLE_RESUMO_PACOTE = "Resumo do pacote";
     private TextView dias;
 
     @Override
@@ -28,7 +29,7 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_pacote);
 
-        setTitle(TITLE_APP_BAR);
+        setTitle(TITLE_RESUMO_PACOTE);
 
         Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"));
 
@@ -38,6 +39,8 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         mostraPreço(pacoteSaoPaulo);
         mostraData(pacoteSaoPaulo);
 
+        Intent intent = new Intent(this, PagamentoActivity.class);
+        startActivity(intent);
 
     }
 

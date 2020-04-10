@@ -6,9 +6,12 @@
     <string name="todo">TODO</string>
     <string name="dias">2 dias</string>
     <string name="valor">R$ 421,50</string>
-    <string name="titulo_app_bar">Pacotes</string>
     <string name="data">08/12 - 10/12 de 2017</string>
     <string name="preco_final">Preço final:</string>
     <string name="realizar_pagamento">Realizar Pagamento</string>
+    <string name="titulo">Digite as informações do cartão de crédito que você deseja usar para o pagamento</string>
+    <string name="valor_da_compra">Valor da compra</string>
+    <string name="numero_cartao">Número do cartão</string>
+    <string name="caracters">abcdefghijklmnopqrstuwxyzçABCDEFGHIJKLMNOPQRSTUWXYZÇ</string>
 
 </resources>

@@ -16,14 +16,14 @@ import java.util.List;
 public class ListaPacotesActivity extends AppCompatActivity {
 
 
-    public static final String TITLE_APP = "Pacotes";
+    public static final String TITLE_PACOTES = "Pacotes";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_pacotes);
 
-        setTitle(TITLE_APP);
+        setTitle(TITLE_PACOTES);
         configuraLista();
 
         Intent intent = new Intent(this, ResumoPacoteActivity.class);

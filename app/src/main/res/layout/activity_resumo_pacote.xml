@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activity.ResumoPacoteActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/resumo_pacote_image"
@@ -13,7 +12,7 @@
         android:layout_height="140dp"
         android:contentDescription="@string/todo"
         android:scaleType="centerCrop"
-        android:src="@drawable/sao_paulo_sp"
+        tools:src="@drawable/sao_paulo_sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +86,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/botao_redondo_laranja"
-        android:text="@string/realizar_pagamento"
+        tools:text="@string/realizar_pagamento"
         android:textColor="@color/cardview_light_background"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
