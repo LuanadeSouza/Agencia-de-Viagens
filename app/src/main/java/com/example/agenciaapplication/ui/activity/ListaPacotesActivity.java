@@ -2,6 +2,8 @@ package com.example.agenciaapplication.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,15 +27,21 @@ public class ListaPacotesActivity extends AppCompatActivity {
 
         setTitle(TITLE_PACOTES);
         configuraLista();
-
-        Intent intent = new Intent(this, ResumoPacoteActivity.class);
-        startActivity(intent);
-
     }
 
     private void configuraLista() {
         ListView listaDePacotes = findViewById(R.id.list_view_lista_pacotes);
-        List<Pacote> pacotes = new PacoteDao().lista();
+        final List<Pacote> pacotes = new PacoteDao().lista();
         listaDePacotes.setAdapter( new ListaPacotesAdapter(pacotes, this));
+        listaDePacotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Pacote pacoteClicado = pacotes.get(position);
+                Intent intent = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
+                intent.putExtra("pacotes",pacoteClicado);
+                startActivity(intent);
+
+            }
+        });
     }
 }

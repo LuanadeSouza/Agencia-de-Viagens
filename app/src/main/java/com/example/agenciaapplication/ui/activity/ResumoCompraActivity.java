@@ -2,8 +2,11 @@ package com.example.agenciaapplication.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +18,7 @@ import com.example.agenciaapplication.util.ResourceUtil;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class ResumoCompraActivity extends AppCompatActivity {
@@ -28,12 +32,24 @@ public class ResumoCompraActivity extends AppCompatActivity {
 
         setTitle(TITLE_RESUMO);
 
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"));
+        Intent intent = getIntent();
+        if (intent.hasExtra("pacote")) {
+            Pacote pacote = (Pacote) intent.getSerializableExtra("pacote");
 
-        mostraLocal(pacoteSaoPaulo);
-        mostraImage(pacoteSaoPaulo);
-        mostraDate(pacoteSaoPaulo);
-        mostraPreco(pacoteSaoPaulo);
+            mostraLocal(pacote);
+            mostraImage(pacote);
+            mostraDate(pacote);
+            mostraPreco(pacote);
+
+            Button buttonVoltar = findViewById(R.id.button_voltar);
+            buttonVoltar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ResumoCompraActivity.this, ListaPacotesActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     private void mostraPreco(Pacote pacote) {
